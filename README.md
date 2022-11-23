@@ -116,17 +116,17 @@ INFO: root: Skipping hosts: ['192.168.0.12']
 Finished!
 ```
 
-- `--networks` is required to set a range of networks, this can be a single or a list of network ranges. This requires the format `x.x.x.x / x` .
+- `--networks` is required to set a range of networks, this can be a single or a list of network ranges. This requires the format `x.x.x.x/x` .
 
 `--networks '192.0.1.0/31'`
 
-`--networks '192.0.1.0/31' '192.0.2.0/28' '192.168.0.0/'`
+`--networks '192.0.1.0/31' '192.0.2.0/28' '192.168.0.0/24'`
 
 - `--retries` will define the number of time the ping is sent to a address on a fail attempt. Default is 2.
 
 - `--skip 12` will skip all addresses in the network ranges given, i.e.
 
-given: `--networks '192.0.1.0/31' '192.0.2.0/28' '192.168.0.0/29' - -skip 23` still skip `192.0.1.23`, `192.0.2.23` and `192.168.0.23`
+given: `--networks '192.0.1.0/31' '192.0.2.0/28' '192.168.0.0/29' --skip 23` still skip `192.0.1.23`, `192.0.2.23` and `192.168.0.23`
 
 - `-v` produces a more verbose output.
 
