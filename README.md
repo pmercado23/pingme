@@ -12,7 +12,7 @@ This is a script that runs a ping sweep across a defined network range.
 To install locally, simply run
 
 ```shell
-$ python3 - m pip install - r requirements.txt
+$ python3 -m pip install -r requirements.txt
 ```
 
 This will install the required packages.
@@ -23,7 +23,7 @@ This app has been dockerized.
 
 ## Build
 
-To run a build, make sure docker is running and run the command `docker build - t pingme .`
+To run a build, make sure docker is running and run the command `docker build -t pingme .`
 
 This will use the defined def located in the Dockerfile.
 
@@ -61,7 +61,7 @@ $ docker network ls
 NETWORK ID     NAME      DRIVER    SCOPE
 973a331ff318   bridge    bridge    local
 421df7ea69bb   host      host      local
-b7278232143f   myping    bridge    local < --- network created here
+b7278232143f   myping    bridge    local <---network created here
 ```
 
 Then you can run the docker image with the network selected along with any flags added.
@@ -69,7 +69,7 @@ Then you can run the docker image with the network selected along with any flags
 Example:
 
 ```shell
-$ docker run - -rm - -name = app - -network = myping pingme - -networks '192.0.1.0/31' '192.0.2.0/28' '192.168.0.0/29' - -skip 12 - -retries 1
+$ docker run --rm --name=app --network=myping pingme --networks '192.0.1.0/31' '192.0.2.0/28' '192.168.0.0/29' --skip 12 --retries 1
 Running...
 *********
 {'down': ['192.0.1.0',
@@ -103,7 +103,7 @@ Finished!
 Example usage for running a ping sweep across a range of addresses.
 
 ```shell
-$ python3 ping_me.py - -networks '192.168.0.180/31' - -skip 12 - -retries 1 - v
+$ python3 ping_me.py --networks '192.168.0.180/31' --skip 12 --retries 1 -v
 
 Running...
 INFO: root: Running with retries: 1
@@ -130,10 +130,10 @@ given: `--networks '192.0.1.0/31' '192.0.2.0/28' '192.168.0.0/29' - -skip 23` st
 
 - `-v` produces a more verbose output.
 
-You can run the script with the - h command for more info.
+You can run the script with the -h command for more info.
 
 ```shell
-$ python3 ping_me.py - h
+$ python3 ping_me.py -h
 
 usage: ProgramName[-h][--networks NETWORKS[NETWORKS ...]][--retries RETRIES][--skip SKIP][-v]
 
@@ -152,10 +152,10 @@ $
 
 # Test
 
-To run tests, simply run `python3 - m unittest`
+To run tests, simply run `python3 -m unittest`
 
 ```shell
-$ python3 - m unittest
+$ python3 -m unittest
 .........
 ----------------------------------------------------------------------
 Ran 9 tests in 45.227s
@@ -171,8 +171,8 @@ Tests can be found under `test.py`
 This script is PEP8 formatted. to run formatter on the files, simply run:
 
 ```shell
-$ autopep8 - - in -place - -aggressive - -aggressive ping_me.py
-$ autopep8 - - in -place - -aggressive - -aggressive test.py
+$ autopep8 --in-place --aggressive --aggressive ping_me.py
+$ autopep8 --in-place --aggressive --aggressive test.py
 ```
 
 This will make format changes to each files defined.
